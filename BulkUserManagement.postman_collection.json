@@ -1,0 +1,70 @@
+{
+	"info": {
+		"_postman_id": "e1fecdd8-ac95-4787-93e6-898338c33792",
+		"name": "Bulk User Management API",
+		"description": "API collection for bulk user creation and updates",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Bulk Create Users",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n    {\n        \"fullName\": \"John Doe\",\n        \"email\": \"john@example.com\",\n        \"phone\": \"1234567890\",\n        \"walletBalance\": 100,\n        \"deviceInfo\": {\n            \"ipAddress\": \"192.168.1.1\",\n            \"deviceType\": \"Desktop\",\n            \"os\": \"Windows\"\n        }\n    },\n    {\n        \"fullName\": \"Jane Smith\",\n        \"email\": \"jane@example.com\",\n        \"phone\": \"0987654321\",\n        \"walletBalance\": 50,\n        \"deviceInfo\": {\n            \"ipAddress\": \"192.168.1.2\",\n            \"deviceType\": \"Mobile\",\n            \"os\": \"iOS\"\n        }\n    }\n]"
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/users/bulk-create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"users",
+						"bulk-create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Bulk Update Users",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n    {\n        \"email\": \"john@example.com\",\n        \"update\": {\n            \"walletBalance\": 150,\n            \"isBlocked\": true\n        }\n    },\n    {\n        \"phone\": \"0987654321\",\n        \"update\": {\n            \"kycStatus\": \"Approved\"\n        }\n    }\n]"
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/users/bulk-update",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"users",
+						"bulk-update"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
